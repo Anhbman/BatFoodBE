@@ -56,6 +56,11 @@ public class FoodController {
         return new ResponseEntity<>(foodService.getAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<?> getCountFood() {
+        return new ResponseEntity<>(foodService.countFood(), HttpStatus.OK);
+    }
+
     private void addFile(MultipartFile file, Food food) {
             try {
                 var fileName = file.getOriginalFilename();

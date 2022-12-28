@@ -22,4 +22,9 @@ public class FoodServiceImpl implements FoodService {
     public List<Food> getAll() {
         return foodRepository.findAll();
     }
+
+    @Override
+    public Long countFood() {
+        return foodRepository.countFood();
+    }
 }

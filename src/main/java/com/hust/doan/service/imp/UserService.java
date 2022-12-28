@@ -30,6 +30,10 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Username" + username));
     }
 
+    public Long countUser() {
+        return userRepository.countAll();
+    }
+
     public Boolean exitsUserName(String username) {
         return userRepository.existsByUsername(username);
     }
