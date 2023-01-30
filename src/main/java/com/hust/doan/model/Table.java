@@ -21,4 +21,6 @@ public class Table extends BaseEntity{
     private List<Order> orders;
 
     private Boolean status;
+
+    private Boolean active;
 }
