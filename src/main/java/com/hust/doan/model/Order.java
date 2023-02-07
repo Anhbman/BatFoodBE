@@ -1,12 +1,14 @@
 package com.hust.doan.model;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @javax.persistence.Table(name = "orders")
+@NoArgsConstructor
 public class Order extends BaseEntity{
 
     @ManyToOne
@@ -19,4 +21,8 @@ public class Order extends BaseEntity{
 
     @OneToMany(mappedBy = "order")
     private Set<OrderFood> orderFoods;
+
+    public Order(Table table) {
+        this.table = table;
+    }
 }
