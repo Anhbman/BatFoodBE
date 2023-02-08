@@ -1,5 +1,6 @@
 package com.hust.doan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class Food extends BaseEntity{
     private Float price;
 
     @OneToMany(mappedBy = "food")
+    @JsonIgnore
     private Set<OrderFood> orderFoods;
 
     @ManyToOne
