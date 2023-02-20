@@ -31,11 +31,11 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order addOrder(OrderDTO request) {
         Table table = tableService.findById(request.getTable().getId());
-        if (!table.getActive()) {
+        if (table.getActive() != null && !table.getActive()) {
             throw new WebServiceException("Bàn " + table.getName() + " không được active!");
         }
 
-        if (table.getStatus()) {
+        if (table.getStatus() != null && table.getStatus()) {
             throw new WebServiceException("Bàn " + table.getName() + " đang được sử dụng!");
         }
 
