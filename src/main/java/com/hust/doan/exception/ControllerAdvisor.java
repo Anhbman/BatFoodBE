@@ -47,4 +47,12 @@ public class ControllerAdvisor extends ResponseEntityExceptionHandler {
         body.put("Message", ex.getMessage());
         return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(WebServiceException.class)
+    public ResponseEntity<?> handleWebService(WebServiceException ex) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamps", LocalDateTime.now());
+        body.put("Message", ex.getMessage());
+        return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
+    }
 }
