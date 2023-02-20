@@ -30,6 +30,6 @@ public class OrderController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getFieldError().getDefaultMessage(), HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(orderFoodService.addOrderFoods(orderService.addOrder(request), request.getOrderFood()), HttpStatus.CREATED);
+        return new ResponseEntity<>(orderService.addOrder(request), HttpStatus.CREATED);
     }
 }

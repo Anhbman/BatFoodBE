@@ -8,4 +8,6 @@ import java.util.List;
 public interface TableService {
 
     List<Table> getAll();
+
+    Table findById(Long id);
 }
