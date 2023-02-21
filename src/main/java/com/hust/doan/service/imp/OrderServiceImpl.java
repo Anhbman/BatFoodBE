@@ -38,7 +38,8 @@ public class OrderServiceImpl implements OrderService {
         if (table.getStatus() != null && table.getStatus()) {
             throw new WebServiceException("Bàn " + table.getName() + " đang được sử dụng!");
         }
-
+        table.setStatus(Boolean.TRUE);
+        tableService.save(table);
         Order order = new Order(request.getTable());
         order.setOrderStatus(OrderStatus.REQUEST);
         orderFoodService.addOrderFoods(orderRepository.save(order), request.getOrderFood());

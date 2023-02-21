@@ -10,4 +10,6 @@ public interface TableService {
     List<Table> getAll();
 
     Table findById(Long id);
+
+    Table save(Table table);
 }

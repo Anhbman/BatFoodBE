@@ -20,7 +20,9 @@ public class Table extends BaseEntity{
     @JsonIgnore
     private List<Order> orders;
 
+//    1: Đang sử dụng
     private Boolean status;
 
+//    1: Không sử dụng  được
     private Boolean active;
 }

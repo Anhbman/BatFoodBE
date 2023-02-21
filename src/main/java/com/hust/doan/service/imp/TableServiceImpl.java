@@ -25,4 +25,9 @@ public class TableServiceImpl implements TableService {
         return tableRepository.findById(id)
                 .orElseThrow(()-> new DataNotFoundException("Table id: " + id));
     }
+
+    @Override
+    public Table save(Table table) {
+        return tableRepository.save(table);
+    }
 }
