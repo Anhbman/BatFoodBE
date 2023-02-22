@@ -1,7 +1,7 @@
 package com.hust.doan.model;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -12,6 +12,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class OrderFood extends BaseEntity{
 
     @ManyToOne
@@ -23,6 +25,7 @@ public class OrderFood extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "order_id")
     @NotNull(message = "Order không được null")
+    @JsonIgnore
     private Order order;
 
     @NotNull(message = "amount không được null")

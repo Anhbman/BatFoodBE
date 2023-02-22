@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class OrderServiceImpl implements OrderService {
     @Autowired
@@ -44,5 +46,10 @@ public class OrderServiceImpl implements OrderService {
         order.setOrderStatus(OrderStatus.REQUEST);
         orderFoodService.addOrderFoods(orderRepository.save(order), request.getOrderFood());
         return order;
+    }
+
+    @Override
+    public List<Order> getOrdersByStatus(OrderStatus orderStatus) {
+        return orderRepository.getOrdersByOrderStatus(orderStatus);
     }
 }

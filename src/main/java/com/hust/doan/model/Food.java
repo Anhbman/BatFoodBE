@@ -20,6 +20,7 @@ public class Food extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "category_id")
+    @JsonIgnore
     private Category category;
 
     private String image;

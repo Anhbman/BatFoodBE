@@ -1,5 +1,6 @@
 package com.hust.doan.controller;
 
+import com.hust.doan.model.type.OrderStatus;
 import com.hust.doan.payload.request.OrderDTO;
 import com.hust.doan.service.OrderFoodService;
 import com.hust.doan.service.OrderService;
@@ -31,5 +32,10 @@ public class OrderController {
             return new ResponseEntity<>(bindingResult.getFieldError().getDefaultMessage(), HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(orderService.addOrder(request), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/requestOrders")
+    public ResponseEntity<?> getRequestOrders() {
+        return new ResponseEntity<>(orderService.getOrdersByStatus(OrderStatus.REQUEST), HttpStatus.OK);
     }
 }
