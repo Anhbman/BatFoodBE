@@ -3,6 +3,7 @@ package com.hust.doan.service.imp;
 import com.hust.doan.exception.WebServiceException;
 import com.hust.doan.model.Order;
 import com.hust.doan.model.Table;
+import com.hust.doan.model.type.OrderFoodStatus;
 import com.hust.doan.model.type.OrderStatus;
 import com.hust.doan.payload.request.OrderDTO;
 import com.hust.doan.repository.OrderFoodRepository;
@@ -49,7 +50,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Order> getOrdersByStatus(OrderStatus orderStatus) {
-        return orderRepository.getOrdersByOrderStatus(orderStatus);
+    public List<Order> getOrdersByStatus(OrderFoodStatus foodStatus) {
+        return orderRepository.getOrderFoodsByStatus(foodStatus);
+    }
+
+    @Override
+    public List<Order> getResponseOrderFoods(OrderFoodStatus foodStatus) {
+        return null;
     }
 }

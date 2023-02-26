@@ -1,5 +1,6 @@
 package com.hust.doan.controller;
 
+import com.hust.doan.model.type.OrderFoodStatus;
 import com.hust.doan.model.type.OrderStatus;
 import com.hust.doan.payload.request.OrderDTO;
 import com.hust.doan.service.OrderFoodService;
@@ -36,6 +37,16 @@ public class OrderController {
 
     @GetMapping("/requestOrders")
     public ResponseEntity<?> getRequestOrders() {
-        return new ResponseEntity<>(orderService.getOrdersByStatus(OrderStatus.REQUEST), HttpStatus.OK);
+        return new ResponseEntity<>(orderService.getOrdersByStatus(OrderFoodStatus.REQUEST), HttpStatus.OK);
+    }
+
+    @PutMapping("/responseFood/{id}")
+    public ResponseEntity<?> updateOrderFood(@PathVariable(value = "id") Long id) {
+        return new ResponseEntity<>(orderFoodService.updateOrderFood(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/responseFoods")
+    public ResponseEntity<?> getResponseFoods() {
+        return new ResponseEntity<>(orderService.getOrdersByStatus(OrderFoodStatus.RESPONSE), HttpStatus.OK);
     }
 }

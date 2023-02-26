@@ -1,6 +1,7 @@
 package com.hust.doan.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hust.doan.model.type.OrderFoodStatus;
 import lombok.Data;
 
 import javax.persistence.*;

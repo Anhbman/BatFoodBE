@@ -1,6 +1,7 @@
 package com.hust.doan.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hust.doan.model.type.OrderFoodStatus;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -21,7 +22,6 @@ public class OrderFood extends BaseEntity{
     @NotNull(message = "Food không được null")
     private Food food;
 
-
     @ManyToOne
     @JoinColumn(name = "order_id")
     @NotNull(message = "Order không được null")
@@ -30,4 +30,7 @@ public class OrderFood extends BaseEntity{
 
     @NotNull(message = "amount không được null")
     private Long amount;
+
+    private OrderFoodStatus orderFoodStatus;
+
 }

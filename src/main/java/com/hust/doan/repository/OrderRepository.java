@@ -1,10 +1,13 @@
 package com.hust.doan.repository;
 
 import com.hust.doan.model.Order;
+import com.hust.doan.model.type.OrderFoodStatus;
 import com.hust.doan.model.type.OrderStatus;
 import com.hust.doan.payload.response.RequestOrderDTO;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,6 +19,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             "from orders o join order_food of on o.id = of.order_id join food f on f.id = of.food_id join tables t on t.id = o.table_id order by o.created_date desc ")
     List<RequestOrderDTO> getRequestOrders();
 
-    List<Order> getOrdersByOrderStatus(OrderStatus orderStatus);
-
+    @Query("select o from Order o join OrderFood of on o.id = of.id where of.orderFoodStatus = :status")
+    List<Order> getOrderFoodsByStatus(@Param("status") OrderFoodStatus foodStatus);
 }

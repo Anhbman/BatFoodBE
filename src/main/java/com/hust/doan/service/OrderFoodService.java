@@ -9,4 +9,7 @@ import java.util.List;
 
 public interface OrderFoodService {
     List<OrderFood> addOrderFoods(Order order, List<OrderFoodsDTO> request);
+
+    OrderFood updateOrderFood(Long id);
+
 }

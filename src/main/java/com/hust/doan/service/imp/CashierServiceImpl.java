@@ -1,6 +1,7 @@
 package com.hust.doan.service.imp;
 
 import com.hust.doan.model.Order;
+import com.hust.doan.model.type.OrderFoodStatus;
 import com.hust.doan.model.type.OrderStatus;
 import com.hust.doan.payload.response.RequestOrderDTO;
 import com.hust.doan.repository.OrderRepository;
@@ -22,7 +23,7 @@ public class CashierServiceImpl implements CashierService {
     }
 
     @Override
-    public List<Order> getOrdersByStatus(OrderStatus orderStatus) {
-        return orderRepository.getOrdersByOrderStatus(orderStatus);
+    public List<Order> getOrdersByStatus(OrderFoodStatus orderStatus) {
+        return orderRepository.getOrderFoodsByStatus(orderStatus);
     }
 }

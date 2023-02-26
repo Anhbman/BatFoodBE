@@ -1,5 +1,6 @@
 package com.hust.doan.controller;
 
+import com.hust.doan.model.type.OrderFoodStatus;
 import com.hust.doan.model.type.OrderStatus;
 import com.hust.doan.service.CashierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,6 @@ public class CashierController {
 
     @GetMapping
     public ResponseEntity<?> getRequestOrders() {
-        return new ResponseEntity<>(cashierService.getOrdersByStatus(OrderStatus.REQUEST), HttpStatus.OK);
+        return new ResponseEntity<>(cashierService.getOrdersByStatus(OrderFoodStatus.REQUEST), HttpStatus.OK);
     }
 }
