@@ -24,6 +24,6 @@ public class CashierServiceImpl implements CashierService {
 
     @Override
     public List<Order> getOrdersByStatus(OrderFoodStatus orderStatus) {
-        return orderRepository.getOrderFoodsByStatus(orderStatus);
+        return null;
     }
 }

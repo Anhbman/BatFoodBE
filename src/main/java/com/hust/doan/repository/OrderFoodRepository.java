@@ -9,5 +9,6 @@ import java.util.List;
 
 @Repository
 public interface OrderFoodRepository extends JpaRepository<OrderFood, Long> {
-    List<OrderFood> getOrderFoodsByOrderFoodStatus(OrderFoodStatus foodStatus);
+
+    List<OrderFood> getOrderFoodsByOrderFoodStatus(OrderFoodStatus orderFoodStatus);
 }

@@ -38,4 +38,9 @@ public class OrderFoodServiceImpl implements OrderFoodService {
         orderFood.setOrderFoodStatus(OrderFoodStatus.RESPONSE);
         return orderFoodRepository.save(orderFood);
     }
+
+    @Override
+    public List<OrderFood> getFoodsByStatus(OrderFoodStatus orderFoodStatus) {
+        return orderFoodRepository.getOrderFoodsByOrderFoodStatus(orderFoodStatus);
+    }
 }

@@ -3,6 +3,7 @@ package com.hust.doan.controller;
 import com.hust.doan.model.type.OrderFoodStatus;
 import com.hust.doan.model.type.OrderStatus;
 import com.hust.doan.payload.request.OrderDTO;
+import com.hust.doan.service.KitchenService;
 import com.hust.doan.service.OrderFoodService;
 import com.hust.doan.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class OrderController {
     @Autowired
     private OrderFoodService orderFoodService;
 
+    @Autowired
+    private KitchenService kitchenService;
+
     @PostMapping()
     @Transactional
     public ResponseEntity<?> order(@Valid @RequestBody OrderDTO request,
@@ -37,16 +41,16 @@ public class OrderController {
 
     @GetMapping("/requestOrders")
     public ResponseEntity<?> getRequestOrders() {
-        return new ResponseEntity<>(orderService.getOrdersByStatus(OrderFoodStatus.REQUEST), HttpStatus.OK);
+        return new ResponseEntity<>(kitchenService.getOrderFoodsByStatus(OrderFoodStatus.REQUEST), HttpStatus.OK);
     }
 
-    @PutMapping("/responseFood/{id}")
+    @PutMapping("/acceptFood/{id}")
     public ResponseEntity<?> updateOrderFood(@PathVariable(value = "id") Long id) {
         return new ResponseEntity<>(orderFoodService.updateOrderFood(id), HttpStatus.OK);
     }
 
     @GetMapping("/responseFoods")
     public ResponseEntity<?> getResponseFoods() {
-        return new ResponseEntity<>(orderService.getOrdersByStatus(OrderFoodStatus.RESPONSE), HttpStatus.OK);
+        return new ResponseEntity<>(kitchenService.getOrderFoodsByStatus(OrderFoodStatus.RESPONSE), HttpStatus.OK);
     }
 }

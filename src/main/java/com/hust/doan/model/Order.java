@@ -24,7 +24,7 @@ public class Order extends BaseEntity{
     @OneToMany(mappedBy = "order")
     private Set<OrderFood> orderFoods;
 
-    private OrderStatus orderStatus;
+//    private OrderStatus orderStatus;
 
     public Order(Table table) {
         this.table = table;
