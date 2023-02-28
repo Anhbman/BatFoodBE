@@ -23,6 +23,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     @Query("select o, ofd from Order o join OrderFood ofd on o.id = ofd.order.id where ofd.orderFoodStatus = 1")
     List<Order> getOrderFoodsByStatus(OrderFoodStatus foodStatus);
 
-//    @Query("select o from Order o join OrderFood ofd on ")
+//    @Query("select o from Order o, OrderFood ofd where o.id = ")
 //    Order getOrderByOrderFood(OrderFood orderFood);
 }
